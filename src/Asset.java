@@ -1,7 +1,7 @@
 public class Asset {
 
-    private String name;
-    private String symbol;
+    private final String name;
+    private final String symbol;
 
     public Asset(String name, String symbol){
         this.name = name;
@@ -16,7 +16,9 @@ public class Asset {
         return symbol;
     }
 
+    // Default method to calculate total value.
+    // Designed to be overridden by child classes
     public double calculateValue(){
-        return 0.0;
+        return 0;
     }
 }
