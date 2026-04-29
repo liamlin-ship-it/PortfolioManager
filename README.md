@@ -26,7 +26,7 @@ This project applies Object-Oriented Programming (OOP) concepts:
 # Phase 1: Defining the Base Class "Asset"
 
 **Purpose:** This class holds common properties that all financial instruments share (like `name` and `symbol`) to avoid code duplication in the future.
-```java=
+```java
 public class Asset {
 
     private final String name;
@@ -55,7 +55,7 @@ public class Asset {
 
 # Phase 2: Implementing the Child Class "Stock"
 **Purpose:** Built the `Stock` class, which inherits from `Asset`. This class is designed to track individual company shares.
-```java=
+```java
 public class Stock extends Asset{
 
     // Encapsulation
@@ -86,7 +86,7 @@ public class Stock extends Asset{
 
 # Phase 3: Expanding the Portfolio with "ETF" Class
 **Purpose:** Created the `ETF` class to handle ETF. It also inherits from `Asset` but introduces logic specific to funds.
-```java=
+```java
 public class ETF extends Asset {
 
     private final int shares;
@@ -120,7 +120,7 @@ public class ETF extends Asset {
 
 # Phase 4: Implementation & Bug Fixing
 **Purpose:** Create a command-line interface in `Main.java` to test adding assets and generating a portfolio report dynamically.
-```java=
+```java
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -242,7 +242,7 @@ info
 I simply added a blank `scanner.nextLine();` to clear that leftover "Enter" out of the way. It was a small bug, but it taught me a lot about how Java reads user inputs!
 
 
-```java=
+```java
 int choice = scanner.nextInt();
 
             // We need this empty nextLine() to consume the leftover "Enter" key character
@@ -260,7 +260,7 @@ info
 Instead of forcing the user to do the math and type `0.005`, I updated the prompt to say `"Enter management fee in %: "`. Then, in my code, I simply divided the input by 100 (`scanner.nextDouble() / 100`). It's a small change, but it makes the program much more intuitive and user-friendly!
 
 
-```java=
+```java
 // Convert user input from percentage to decimal format
                 System.out.println("Enter management fee in %: ");
                 double fee = scanner.nextDouble() / 100;
@@ -276,7 +276,7 @@ info
 The `instanceof` checks if the current asset is specifically a `Stock` or an `ETF`. Once verified, Java automatically "unlocks" that specific class, allowing me to call its unique profit method safely.
 
 
-```java=
+```java
 // The 'Asset' variable doesn't know about calculateProfit().
 // We use 'instanceof' to verify if it's a Stock, then unlock its specific profit method.
             if (currentAsset instanceof Stock s){
